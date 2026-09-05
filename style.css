@@ -1,0 +1,489 @@
+/* Font chữ hệ thống chuẩn nét, sạch sẽ và hoài niệm */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Press+Start+2P&display=swap');
+
+:root {
+    /* Bảng màu Nokia Champagne Gold chuẩn theo mẫu */
+    --nokia-cream-light: #faf5e4;
+    --nokia-cream: #f2e9ce;
+    --nokia-cream-dark: #dfd3af;
+    --nokia-cream-border: #cfc299;
+    --nokia-key-bg: #f5eed6;
+    --nokia-key-press: #e5dbc0;
+    --nokia-text: #2a2924;
+    --nokia-text-muted: #615d52;
+    --chrome-bright: #ffffff;
+    --chrome-mid: #cfcbbe;
+    --chrome-dark: #7a776c;
+    --accent-orange: #d86c23;
+    --call-green: #17937c;
+    --end-pink: #d95b77;
+    --bg-page: #e8e2d2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    background: radial-gradient(circle at 50% 30%, #f4efe4 0%, var(--bg-page) 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--nokia-text);
+    padding: 16px;
+    touch-action: manipulation;
+}
+
+.layout-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* ==================== VỎ MÁY NOKIA CHAMPAGNE GOLD ==================== */
+.phone-case {
+    width: 324px;
+    background: linear-gradient(180deg, var(--nokia-cream-light) 0%, var(--nokia-cream) 40%, var(--nokia-cream-dark) 100%);
+    border-radius: 40px 40px 46px 46px;
+    padding: 18px 14px 26px;
+    border: 2px solid var(--nokia-cream-border);
+    box-shadow: 
+        0 24px 48px -12px rgba(80, 68, 48, 0.28),
+        0 0 0 1px rgba(255, 255, 255, 0.7) inset,
+        0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Loa thoại kim loại bo cong */
+.speaker-grill {
+    width: 76px;
+    height: 14px;
+    background: linear-gradient(180deg, #d6ceb5 0%, #ede6d1 100%);
+    border-radius: 10px;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #c5baa0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+}
+
+.speaker-hole {
+    width: 48px;
+    height: 4px;
+    background: #403d35;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5) inset;
+}
+
+/* Logo Nokia */
+.nokia-logo {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #3b3830;
+    margin-bottom: 10px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ==================== MÀN HÌNH NOKIA ==================== */
+.screen-bezel {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 6px 6px 8px;
+    border: 1.5px solid #d5cbb0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) inset;
+    overflow: hidden;
+}
+
+/* Thanh trạng thái Nokia cổ điển */
+.nokia-status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 16px;
+    padding: 0 4px 2px;
+    background: #ffffff;
+    font-size: 11px;
+    color: #333;
+}
+
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Cột sóng Nokia 5 vạch */
+.signal-icon {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 1.5px;
+    height: 10px;
+}
+
+.signal-icon i {
+    display: block;
+    width: 2px;
+    background: #3a3832;
+    border-radius: 0.5px;
+}
+
+.signal-icon i:nth-child(1) { height: 3px; }
+.signal-icon i:nth-child(2) { height: 5px; }
+.signal-icon i:nth-child(3) { height: 7px; }
+.signal-icon i:nth-child(4) { height: 9px; }
+.signal-icon i:nth-child(5) { height: 10px; }
+
+.msg-icon {
+    font-size: 10px;
+    color: #4a473e;
+    line-height: 1;
+}
+
+/* Biểu tượng pin */
+.battery-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5px;
+    width: 22px;
+    height: 9px;
+    border: 1px solid #3a3832;
+    padding: 1px;
+    border-radius: 1px;
+    position: relative;
+}
+
+.battery-icon::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 2px;
+    width: 1.5px;
+    height: 3px;
+    background: #3a3832;
+    border-radius: 0 1px 1px 0;
+}
+
+.battery-icon i {
+    display: block;
+    flex: 1;
+    height: 100%;
+    background: #17937c;
+    border-radius: 0.5px;
+}
+
+.canvas-wrapper {
+    background: #5c94fc;
+    border: 1px solid #b8b098;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    display: block;
+    width: 240px;
+    height: 320px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* ==================== CỤM PHÍM BẤM NOKIA ==================== */
+.control-panel {
+    margin-top: 12px;
+}
+
+/* Hàng phím chức năng & D-Pad */
+.function-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(230, 220, 195, 0.6);
+    border-radius: 18px;
+    padding: 6px 8px;
+    border: 1px solid #d5c9a7;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.func-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 68px;
+}
+
+.accent-line {
+    width: 32px;
+    height: 3px;
+    background: var(--accent-orange);
+    border-radius: 2px;
+    margin-bottom: 2px;
+}
+
+.func-btn {
+    width: 48px;
+    height: 25px;
+    background: linear-gradient(180deg, #fdfbf3 0%, var(--nokia-key-bg) 100%);
+    border: 1px solid #c7bc9d;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1.5px 0 #b3a685;
+    transition: transform 0.05s, background 0.05s;
+}
+
+.func-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 0.5px 0 #b3a685;
+    background: var(--nokia-key-press);
+}
+
+.func-btn .icon {
+    font-size: 13px;
+    color: #403d35;
+    line-height: 1;
+}
+
+.call-green {
+    color: var(--call-green) !important;
+    font-size: 11px !important;
+}
+
+.end-pink {
+    color: var(--end-pink) !important;
+    font-weight: bold;
+    font-size: 12px !important;
+}
+
+/* ==================== D-PAD MẠ CROM BẠC ==================== */
+.dpad-housing {
+    width: 78px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--chrome-bright) 0%, var(--chrome-mid) 50%, var(--chrome-dark) 100%);
+    border-radius: 12px;
+    border: 1px solid #999485;
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dpad-dir {
+    position: absolute;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.dpad-dir.up { top: 0; left: 16px; width: 46px; height: 20px; }
+.dpad-dir.down { bottom: 0; left: 16px; width: 46px; height: 20px; }
+.dpad-dir.left { left: 0; top: 12px; width: 22px; height: 40px; }
+.dpad-dir.right { right: 0; top: 12px; width: 22px; height: 40px; }
+
+/* Nút vuông giữa mạ Crom */
+.dpad-center-btn {
+    width: 36px;
+    height: 32px;
+    background: linear-gradient(180deg, #f7f6f2 0%, #d8d4c7 60%, #b8b3a4 100%);
+    border: 1px solid #8c887a;
+    border-radius: 6px;
+    box-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.25),
+        0 1px 0 rgba(255, 255, 255, 0.9) inset;
+    cursor: pointer;
+    z-index: 3;
+    transition: transform 0.05s;
+}
+
+.dpad-center-btn:active {
+    transform: translateY(1px) scale(0.97);
+    background: #bfbaa8;
+}
+
+/* ==================== BÀN PHÍM SỐ T9 ==================== */
+.keypad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    background: #dcd1af;
+    padding: 3px;
+    border-radius: 12px;
+    border: 1px solid #cfc29b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) inset;
+}
+
+.t9-key {
+    height: 38px;
+    background: linear-gradient(180deg, #faf6e8 0%, var(--nokia-key-bg) 60%, #ece2c4 100%);
+    border: 1px solid #f9f5e6;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 1px 0 #b3a685;
+    transition: transform 0.05s, background 0.05s;
+}
+
+.t9-key:active {
+    transform: translateY(1px);
+    box-shadow: none;
+    background: var(--nokia-key-press);
+}
+
+.t9-key .num {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--nokia-text);
+}
+
+.t9-key .letters {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--nokia-text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* 2 Vạch gờ xúc giác của phím 5 */
+.key-five .braille {
+    width: 2px;
+    height: 10px;
+    background: #ad9f7c;
+    border-radius: 1px;
+    position: absolute;
+    top: 14px;
+}
+
+.key-five .braille.left { left: 5px; }
+.key-five .braille.right { right: 5px; }
+
+/* ==================== BẢNG HƯỚNG DẪN TỰ NHIÊN ==================== */
+.quick-guide {
+    background: #fdfbf7;
+    border: 1px solid #dcd3bf;
+    border-radius: 18px;
+    padding: 22px 24px;
+    box-shadow: 0 10px 30px rgba(80, 68, 48, 0.08);
+    max-width: 380px;
+    width: 100%;
+}
+
+.guide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee8d8;
+}
+
+.guide-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2e2b24;
+}
+
+.sound-tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: #17937c;
+    background: #eaf6f3;
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid #bce2db;
+}
+
+.guide-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.guide-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 13.5px;
+    line-height: 1.45;
+}
+
+.guide-item .label {
+    font-weight: 600;
+    color: #4a4539;
+}
+
+.guide-item .value {
+    color: #696353;
+}
+
+.guide-item .value strong {
+    color: #24221c;
+    background: #eee8d7;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 12.5px;
+}
+
+.guide-note {
+    font-size: 12px;
+    color: #7d7563;
+    background: #f4ede0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    line-height: 1.4;
+    border-left: 3px solid var(--accent-orange);
+}
+
+/* ==================== TỐI ƯU TRÊN ĐIỆN THOẠI DI ĐỘNG ==================== */
+@media (max-width: 768px) {
+    body {
+        padding: 8px;
+        align-items: flex-start;
+    }
+
+    .layout-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    /* Co gọn thân máy vừa vặn màn hình điện thoại */
+    .phone-case {
+        width: 100%;
+        max-width: 320px;
+        padding: 14px 10px 20px;
+        border-radius: 32px;
+    }
+
+    .quick-guide {
+        max-width: 320px;
+        padding: 16px;
+    }
+}

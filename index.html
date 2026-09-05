@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nokia Retro Mario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="layout-wrapper">
+        <!-- VỎ ĐIỆN THOẠI NOKIA CHAMPAGNE GOLD -->
+        <div class="phone-case" id="nokiaPhone">
+            <!-- Loa thoại kim loại bo góc -->
+            <div class="speaker-grill">
+                <div class="speaker-hole"></div>
+            </div>
+            
+            <!-- Logo Nokia dập nổi -->
+            <div class="nokia-logo">NOKIA</div>
+
+            <!-- Khung màn hình màu viền trắng ngà -->
+            <div class="screen-bezel">
+                <!-- Thanh trạng thái cổ điển: Sóng, Tin nhắn, Pin -->
+                <div class="nokia-status-bar">
+                    <div class="status-left">
+                        <span class="signal-icon">
+                            <i></i><i></i><i></i><i></i><i></i>
+                        </span>
+                        <span class="msg-icon">✉</span>
+                    </div>
+                    <div class="status-right">
+                        <span class="battery-icon">
+                            <i></i><i></i><i></i><i></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Màn hình game 240x320 -->
+                <div class="canvas-wrapper">
+                    <canvas id="gameCanvas" width="240" height="320"></canvas>
+                </div>
+            </div>
+
+            <!-- KHU VỰC PHÍM ĐIỀU KHIỂN CHUẨN MẪU NOKIA -->
+            <div class="control-panel">
+                <!-- Hàng phím chức năng & D-Pad mạ Crom -->
+                <div class="function-row">
+                    <!-- Cụm bên trái: Vạch cam, Home, Lịch, Phím gọi xanh -->
+                    <div class="func-group left">
+                        <div class="accent-line"></div>
+                        <button class="func-btn" id="btnHome" onclick="window.gameApp.softLeft()" title="Bắt đầu / Chọn">
+                            <span class="icon">⌂</span>
+                        </button>
+                        <button class="func-btn" id="btnCall" onclick="window.gameApp.softLeft()" title="Gọi / Bắt đầu">
+                            <span class="icon call-green">📞</span>
+                        </button>
+                    </div>
+
+                    <!-- D-Pad mạ Crom bạc kim loại có viền vát cạnh -->
+                    <div class="dpad-housing">
+                        <button class="dpad-dir up" id="dpadUp"
+                            onmousedown="window.gameApp.setKey('up', true)"
+                            onmouseup="window.gameApp.setKey('up', false)"
+                            ontouchstart="window.gameApp.setKey('up', true); event.preventDefault();"
+                            ontouchend="window.gameApp.setKey('up', false); event.preventDefault();"></button>
+                        <button class="dpad-dir down" id="dpadDown"
+                            onmousedown="window.gameApp.setKey('down', true)"
+                            onmouseup="window.gameApp.setKey('down', false)"
+                            ontouchstart="window.gameApp.setKey('down', true); event.preventDefault();"
+                            ontouchend="window.gameApp.setKey('down', false); event.preventDefault();"></button>
+                        <button class="dpad-dir left" id="dpadLeft"
+                            onmousedown="window.gameApp.setKey('left', true)"
+                            onmouseup="window.gameApp.setKey('left', false)"
+                            ontouchstart="window.gameApp.setKey('left', true); event.preventDefault();"
+                            ontouchend="window.gameApp.setKey('left', false); event.preventDefault();"></button>
+                        <button class="dpad-dir right" id="dpadRight"
+                            onmousedown="window.gameApp.setKey('right', true)"
+                            onmouseup="window.gameApp.setKey('right', false)"
+                            ontouchstart="window.gameApp.setKey('right', true); event.preventDefault();"
+                            ontouchend="window.gameApp.setKey('right', false); event.preventDefault();"></button>
+                        
+                        <!-- Nút vuông trung tâm D-Pad -->
+                        <button class="dpad-center-btn" id="dpadCenter"
+                            onmousedown="window.gameApp.setKey('action', true)"
+                            onmouseup="window.gameApp.setKey('action', false)"
+                            ontouchstart="window.gameApp.setKey('action', true); event.preventDefault();"
+                            ontouchend="window.gameApp.setKey('action', false); event.preventDefault();"></button>
+                    </div>
+
+                    <!-- Cụm bên phải: Vạch cam, Danh bạ, Tin nhắn, Phím huỷ hồng -->
+                    <div class="func-group right">
+                        <div class="accent-line"></div>
+                        <button class="func-btn" id="btnSound" onclick="window.gameApp.softRight()" title="Bật / Tắt âm">
+                            <span class="icon">🔔</span>
+                        </button>
+                        <button class="func-btn" id="btnEnd" onclick="window.gameApp.softRight()" title="Ngắt cuộc gọi / Mute">
+                            <span class="icon end-pink">⌫</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bàn phím số 12 nút T9 màu ngà Champagne -->
+                <div class="keypad-grid">
+                    <div class="t9-key" id="key1">
+                        <span class="num">1</span><span class="letters">oo</span>
+                    </div>
+
+                    <div class="t9-key" id="key2"
+                        onmousedown="window.gameApp.setKey('up', true)"
+                        onmouseup="window.gameApp.setKey('up', false)"
+                        ontouchstart="window.gameApp.setKey('up', true); event.preventDefault();"
+                        ontouchend="window.gameApp.setKey('up', false); event.preventDefault();">
+                        <span class="num">2</span><span class="letters">ABC</span>
+                    </div>
+
+                    <div class="t9-key" id="key3">
+                        <span class="letters">DEF</span><span class="num">3</span>
+                    </div>
+
+                    <div class="t9-key" id="key4"
+                        onmousedown="window.gameApp.setKey('left', true)"
+                        onmouseup="window.gameApp.setKey('left', false)"
+                        ontouchstart="window.gameApp.setKey('left', true); event.preventDefault();"
+                        ontouchend="window.gameApp.setKey('left', false); event.preventDefault();">
+                        <span class="num">4</span><span class="letters">GHI</span>
+                    </div>
+
+                    <!-- Phím 5 có 2 vạch gờ xúc giác 2 bên -->
+                    <div class="t9-key key-five" id="key5"
+                        onmousedown="window.gameApp.setKey('action', true)"
+                        onmouseup="window.gameApp.setKey('action', false)"
+                        ontouchstart="window.gameApp.setKey('action', true); event.preventDefault();"
+                        ontouchend="window.gameApp.setKey('action', false); event.preventDefault();">
+                        <span class="braille left"></span>
+                        <span class="num">5</span><span class="letters">JKL</span>
+                        <span class="braille right"></span>
+                    </div>
+
+                    <div class="t9-key" id="key6"
+                        onmousedown="window.gameApp.setKey('right', true)"
+                        onmouseup="window.gameApp.setKey('right', false)"
+                        ontouchstart="window.gameApp.setKey('right', true); event.preventDefault();"
+                        ontouchend="window.gameApp.setKey('right', false); event.preventDefault();">
+                        <span class="letters">MNO</span><span class="num">6</span>
+                    </div>
+
+                    <div class="t9-key" id="key7">
+                        <span class="num">7</span><span class="letters">PQRS</span>
+                    </div>
+
+                    <div class="t9-key" id="key8"
+                        onmousedown="window.gameApp.setKey('down', true)"
+                        onmouseup="window.gameApp.setKey('down', false)"
+                        ontouchstart="window.gameApp.setKey('down', true); event.preventDefault();"
+                        ontouchend="window.gameApp.setKey('down', false); event.preventDefault();">
+                        <span class="num">8</span><span class="letters">TUV</span>
+                    </div>
+
+                    <div class="t9-key" id="key9">
+                        <span class="letters">WXYZ</span><span class="num">9</span>
+                    </div>
+
+                    <div class="t9-key" id="keyStar">
+                        <span class="num">*</span><span class="letters">+ ᛒ</span>
+                    </div>
+
+                    <div class="t9-key" id="key0">
+                        <span class="num">0</span><span class="letters">_ @</span>
+                    </div>
+
+                    <div class="t9-key" id="keyHash">
+                        <span class="letters">⇧ ♫</span><span class="num">#</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BẢNG HƯỚNG DẪN ĐƠN GIẢN, TỰ NHIÊN -->
+        <div class="quick-guide">
+            <div class="guide-header">
+                <h2>Hướng dẫn chơi</h2>
+                <span class="sound-tag" id="soundStatus">Âm thanh: Bật</span>
+            </div>
+            
+            <div class="guide-content">
+                <div class="guide-item">
+                    <span class="label">Di chuyển:</span>
+                    <span class="value">Phím <strong>A / D</strong> hoặc <strong>← / →</strong> (hoặc bấm phím số <strong>4 / 6</strong>)</span>
+                </div>
+                <div class="guide-item">
+                    <span class="label">Nhảy lên:</span>
+                    <span class="value">Phím <strong>Space</strong> hoặc <strong>W / ↑</strong> (hoặc bấm nút <strong>giữa / phím 5</strong>)</span>
+                </div>
+                <div class="guide-item">
+                    <span class="label">Bắt đầu / Chơi lại:</span>
+                    <span class="value">Phím <strong>Enter</strong> hoặc phím <strong>5</strong> (hoặc bấm nút Home ⌂)</span>
+                </div>
+            </div>
+            <p class="guide-note">Mẹo: Nhấn giữ phím nhảy để Mario bay cao hơn qua các ống cống cao.</p>
+        </div>
+    </div>
+
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
